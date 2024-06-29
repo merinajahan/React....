@@ -1,0 +1,47 @@
+///// App.jsx///////////
+
+import './App.css'
+import ExploreDyData from './components/ExploreDynamicData/ExploreDyData'
+
+
+function App(){
+  return(
+    <div>
+     <ExploreDyData name='Mr Khan' age='20' prof='Designing' ></ExploreDyData>
+     <ExploreDyData name='Mr Hero' age= '34' prof= 'Developing'></ExploreDyData>
+     <ExploreDyData name='Mrs Radisha' age= '21' prof= 'Coding' ></ExploreDyData>
+     
+    </div>
+  )
+}
+
+export default App
+
+//////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+
+import React from 'react'
+
+const exploreStyle = {
+    border:'5px solid black', 
+    backgroundColor: 'white', 
+    color: 'brown', 
+    padding: '10px 100px',
+    margin:'40px'
+}
+
+const ExploreDyData = (props) => {  
+
+    return (
+
+    <div style={exploreStyle}>
+      <h2> Explore Dynamic Data </h2>
+      <h2>Name:{props.name}</h2>
+      <p>Age: {props.age}</p>
+      <span>Prof: {props.prof}</span>
+     
+        </div>
+    )
+}
+
+export default ExploreDyData
