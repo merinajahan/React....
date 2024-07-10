@@ -1,0 +1,49 @@
+import React from 'react'
+
+ const Singleuserdata = ({singleData}) => {
+    const {name, phone, website, company} = singleData;
+    console.log(singleData);
+
+  return (
+    <div>
+        <h1>{name}</h1>
+        <p>{website}</p>
+        <h3>{phone}</h3>
+        <h4> Company Name:{company.name}</h4>
+        </div>
+  )
+}
+export default Singleuserdata
+
+/////////////////////
+import { useEffect, useState } from 'react'
+import './App.css'
+import Singleuserdata from './component/Singleuserdata/Singleuserdata';
+
+function App() {
+  const[allData, setAllData]= useState([]);
+ 
+useEffect(() => {
+ 
+   fetch('https://jsonplaceholder.typicode.com/users')
+   .then(res => res.json())
+   .then(data => setAllData(data))
+  
+}, [])
+
+ 
+  return (
+    <div>
+   <h1> Data: {allData.length} </h1>
+   {
+    allData.map(singleData => <Singleuserdata 
+      key={singleData.id}
+     singleData = {singleData}
+    ></Singleuserdata>)
+   }
+    </div>
+     
+  )
+}
+
+export default App
