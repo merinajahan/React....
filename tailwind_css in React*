@@ -1,0 +1,54 @@
+App.jsx..........................
+
+import { useEffect, useState } from 'react'
+import './App.css'
+import Singleuserdata from './component/Singleuserdata/Singleuserdata';
+
+function App() {
+  const[allData, setAllData]= useState([]);
+ 
+useEffect(() => {
+ 
+   fetch('https://jsonplaceholder.typicode.com/users')
+   .then(res => res.json())
+   .then(data => setAllData(data))
+  
+}, [])
+
+  return (
+    <div className= 'grid grid-cols-3 gap-5'>
+  
+   {
+    allData.map(singleData => <Singleuserdata 
+      key={singleData.id}
+     singleData = {singleData}
+    ></Singleuserdata>)
+   }
+    </div>
+     
+  )
+}
+
+export default App
+
+///////////////////////////////////////////////////
+Singleuserdata.jsx...............................
+
+import React from 'react'
+
+ const Singleuserdata = ({singleData}) => {
+    const {name, phone, website, company} = singleData;
+    console.log(singleData);
+
+  return (
+    <div className='border-2 border-red-600 p-4'>
+        <h1 className='text-4xl'>{name}</h1>
+        <p className='text-3xl'>{website}</p>
+        <h3>{phone}</h3>
+        <h4> Company Name:{company.name}</h4>
+        <span>{company.catchPhrase}</span>
+        </div>
+  )
+}
+
+export default Singleuserdata
