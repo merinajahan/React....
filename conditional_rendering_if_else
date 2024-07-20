@@ -1,0 +1,23 @@
+import React from 'react';
+
+
+const LoginFormBtn=(form)=>{
+  if(form){
+    return <button> Logout </button>
+  }
+  else{
+    return <button> Login </button>
+  }
+}
+
+const componentName = () => {
+
+return(
+  <div>
+    <h1> Login form </h1>
+    {LoginFormBtn(true)} // false
+  </div>
+);
+
+};
+export default componentName;
