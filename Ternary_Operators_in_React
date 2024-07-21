@@ -1,0 +1,18 @@
+import React from 'react';
+
+const componentName = () => {
+
+  let marks=90
+
+  return(
+    <div>
+        {
+            marks>80?
+            <h1> Brilliant Result </h1>
+            :
+            <h1> Avarage Result </h1>
+        }
+    </div>
+  );
+};
+export default componentName;
